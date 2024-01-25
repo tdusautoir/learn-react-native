@@ -1,16 +1,17 @@
 import React from "react";
 import { View, SafeAreaView, FlatList, Text } from "react-native";
-import { default as data } from "@/../api/data.json";
 import SpaceShipCard from "@/components/SpaceShipCard";
 import { useStarships } from "@/hooks/useSpaceships";
+import { StatusBar } from 'expo-status-bar';
 
 export const StarshipFeedScreen = () => {
-    const { data, isLoading, isError } = useStarships();
+    const { data, isLoading, isError, error } = useStarships();
 
     return (
-        <>
+        <SafeAreaView>
+            <StatusBar style="dark" />
             {isLoading && <Text>Loading...</Text>}
-            {!isLoading && <SafeAreaView>
+            {!isLoading && data &&
                 <View className="w-full justify-center items-center">
                     <FlatList data={data.results}
                         ItemSeparatorComponent={({ highlighted }) => (
@@ -24,7 +25,8 @@ export const StarshipFeedScreen = () => {
                             return <SpaceShipCard {...item} />
                         }} />
                 </View>
-            </SafeAreaView>}
-        </>
+            }
+            {isError && <Text>{error.message}</Text>}
+        </SafeAreaView>
     );
 };

@@ -22,9 +22,9 @@ export default function LoginScreen() {
                     <View className='gap-y-2'>
                         <Text className='text-lg font-semibold'>Password</Text>
                         <View className='flex-row gap-x-1 items-center'>
-                            <TextInput secureTextEntry={showPassword} className='bg-gray-200 text-xl px-4 py-2 rounded-l-lg flex-1' />
+                            <TextInput secureTextEntry={!showPassword} className='bg-gray-200 text-xl px-4 py-2 rounded-l-lg flex-1' />
                             <TouchableOpacity style={{ height: 44 }} onPress={() => setShowPassword((old) => !old)} className='items-center justify-center bg-gray-200 p-2 rounded-r-lg'>
-                                <Text>{showPassword ? 'Show' : 'Hide'}</Text>
+                                <Text>{showPassword ? 'Hide' : 'Show'}</Text>
                             </TouchableOpacity>
                         </View>
                     </View>
