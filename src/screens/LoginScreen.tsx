@@ -1,7 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
 export default function LoginScreen() {
+    const [showPassword, setShowPassword] = useState(false);
+
     return (
         <>
             <StatusBar style="light" />
@@ -16,7 +19,12 @@ export default function LoginScreen() {
                 </View>
                 <View className='gap-y-2'>
                     <Text className='text-lg font-semibold'>Password</Text>
-                    <TextInput secureTextEntry={true} className='bg-gray-200 text-xl px-4 py-2 rounded-lg' />
+                    <View className='flex-row gap-x-2 items-center'>
+                        <TextInput secureTextEntry={showPassword} className='bg-gray-200 text-xl px-4 py-2 rounded-lg flex-1' />
+                        <TouchableOpacity onPress={() => setShowPassword((old) => !old)} style={{ height: 40 }} className='items-center justify-center bg-violet-600 p-2 rounded-lg'>
+                            <Text className='font-bold text-white'>{showPassword ? 'Show' : 'Hide'}</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
                 <View>
                     <TouchableOpacity style={{ height: 40 }} className='mt-4 items-center justify-center bg-violet-600 rounded-full'>
