@@ -1,9 +1,7 @@
 import React from "react";
-import { StyleSheet, StatusBar, View, Text, ScrollView, Platform, SafeAreaView, FlatList } from "react-native";
-// import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
-
-import { default as data } from "../../api/data.json";
-import SpaceShipCard from "../../components/SpaceShipCard";
+import { View, SafeAreaView, FlatList } from "react-native";
+import { default as data } from "@/../api/data.json";
+import SpaceShipCard from "@/components/SpaceShipCard";
 
 export const StarshipFeedScreen = () => {
     return (
