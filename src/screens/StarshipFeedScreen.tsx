@@ -1,16 +1,18 @@
 import React from "react";
-import { View, SafeAreaView, FlatList, Text } from "react-native";
+import { View, SafeAreaView, FlatList, Text, TouchableOpacity } from "react-native";
 import SpaceShipCard from "@/components/SpaceShipCard/SpaceShipCard";
 import { useStarships } from "@/hooks/useSpaceships";
 import { StatusBar } from 'expo-status-bar';
-import { ScreenContainer } from "react-native-screens";
+import { Routes } from "@/navigation/Routes";
+import { Offline } from "@/components/Offline/Offline";
 
-export default function StarshipFeedScreen() {
+export default function StarshipFeedScreen({ navigation }: { navigation: any }) {
     const { data, isLoading, isError, error } = useStarships();
 
     return (
-        <ScreenContainer>
+        <>
             <SafeAreaView>
+                <Offline />
                 <StatusBar style="dark" />
                 {isLoading && <Text>Loading...</Text>}
                 {!isLoading && data &&
@@ -22,12 +24,23 @@ export default function StarshipFeedScreen() {
                             renderItem={({
                                 item,
                             }) => {
-                                return <SpaceShipCard {...item} />
+                                return (
+                                    <TouchableOpacity onPress={() => {
+                                        navigation.navigate(Routes.STARSHIP_DETAIL_SCREEN, {
+                                            name: item.name,
+                                            manufacturer: item.manufacturer,
+                                            model: item.model,
+                                            cost_in_credits: item.cost_in_credits,
+                                            hyperdrive_rating: item.hyperdrive_rating,
+                                        })
+                                    }}>
+                                        <SpaceShipCard {...item} />
+                                    </TouchableOpacity>);
                             }} />
                     </View>
                 }
                 {isError && <Text>{error.message}</Text>}
             </SafeAreaView>
-        </ScreenContainer>
+        </>
     );
 }

@@ -1,4 +1,5 @@
 import InputPassword from '@/components/InputPassword/InputPassword';
+import { Routes } from '@/navigation/Routes';
 import { StatusBar } from 'expo-status-bar';
 import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 // import { SafeAreaView } from 'react-native-safe-area-context';
@@ -23,11 +24,11 @@ export default function LoginScreen({ navigation }: { navigation: any }) {
                     <InputPassword />
                 </View>
                 <View>
-                    <TouchableOpacity style={{ height: 40 }} className='mt-4 items-center justify-center bg-violet-600 rounded-full'>
+                    <TouchableOpacity onPress={() => navigation.navigate(Routes.STARSHIP_FEED_SCREEN)} style={{ height: 40 }} className='mt-4 items-center justify-center bg-violet-600 rounded-full'>
                         <Text className='font-bold text-white'>Send</Text>
                     </TouchableOpacity>
                 </View>
-                <TouchableOpacity onPress={() => navigation.navigate('Terms')}>
+                <TouchableOpacity onPress={() => navigation.navigate(Routes.TERMS_SCREEN)}>
                     <Text className='text-sm text-slate-500 text-center'>By login you accept the terms and conditions</Text>
                 </TouchableOpacity>
             </View>

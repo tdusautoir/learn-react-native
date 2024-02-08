@@ -4,8 +4,6 @@ import { View, Image, Text, ScrollView, TouchableOpacity, SafeAreaView } from "r
 export default function TermsScreen({ navigation }: { navigation: any }) {
     return (
         <SafeAreaView>
-            {/* <View className="flex-1 flex-row space-between justify-between border-b-2">
-             */}
             <View className="flex-row justify-between px-8 py-4 border-b-2 border-gray-400" >
                 <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Text className="text-xl">&#60; Back</Text>
@@ -13,11 +11,7 @@ export default function TermsScreen({ navigation }: { navigation: any }) {
                 <Text className="text-xl">Terms and conditions</Text>
             </View>
             <ScrollView>
-                {/* <Appbar.Header>
-                <Appbar.BackAction onPress={goBack} />
-                <Appbar.Content title="Terms and Conditions" />
-            </Appbar.Header> */}
-                <View className="px-8">
+                <View className="px-8 mt-4">
                     <Text style={{ marginBottom: 24 }}>
                         This Terms of Service, including all supplemental terms as amended
                         from time to time, governs your use of the online game, service, or
