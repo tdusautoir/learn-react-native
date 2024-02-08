@@ -10,8 +10,8 @@ export default function App() {
     <NetworkProvider>
       <QueryClientProvider client={(new QueryClient())}>
         <ScreenContainer>
-          {/* <StarshipFeedScreen /> */}
-          <LoginScreen />
+          <StarshipFeedScreen />
+          {/* <LoginScreen /> */}
           {/* <TermsScreen />/ */}
         </ScreenContainer>
       </QueryClientProvider>

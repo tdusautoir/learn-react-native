@@ -1,4 +1,4 @@
-import { View, Text, Image, ImageSourcePropType } from "react-native"
+import { View, Text, Image } from "react-native"
 
 type Props = {
     name: string,

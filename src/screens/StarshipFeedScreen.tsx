@@ -14,13 +14,11 @@ export const StarshipFeedScreen = () => {
             {!isLoading && data &&
                 <View className="w-full justify-center items-center">
                     <FlatList data={data.results}
-                        ItemSeparatorComponent={({ highlighted }) => (
+                        ItemSeparatorComponent={() => (
                             <View className="bg-transparent h-8" />
                         )}
                         renderItem={({
                             item,
-                            index,
-                            separators: { highlight, unhighlight },
                         }) => {
                             return <SpaceShipCard {...item} />
                         }} />
