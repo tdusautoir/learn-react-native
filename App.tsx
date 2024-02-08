@@ -3,7 +3,7 @@ import { TermsScreen } from "./src/screens/TermsScreen";
 import { StarshipFeedScreen } from "./src/screens/StarshipFeedScreen";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NetworkProvider } from 'react-native-offline';
-import { ScreenContainer } from "@/components/ScreenContainer";
+import { ScreenContainer } from "@/components/ScreenContainer/ScreenContainer";
 import Constants from 'expo-constants';
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
     <NetworkProvider>
       <QueryClientProvider client={(new QueryClient())}>
         <ScreenContainer>
-          <StarshipFeedScreen />
-          {/* <LoginScreen /> */}
+          {/* <StarshipFeedScreen /> */}
+          <LoginScreen />
           {/* <TermsScreen />/ */}
         </ScreenContainer>
       </QueryClientProvider>

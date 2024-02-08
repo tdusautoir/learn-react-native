@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import React from "react";
 import { View } from "react-native";
-import { Offline } from "./Offline";
+import { Offline } from "../Offline/Offline";
 
 export const ScreenContainer = ({
     children

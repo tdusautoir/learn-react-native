@@ -1,6 +1,6 @@
 import React from "react";
 import { View, SafeAreaView, FlatList, Text } from "react-native";
-import SpaceShipCard from "@/components/SpaceShipCard";
+import SpaceShipCard from "@/components/SpaceShipCard/SpaceShipCard";
 import { useStarships } from "@/hooks/useSpaceships";
 import { StatusBar } from 'expo-status-bar';
 

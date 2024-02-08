@@ -1,11 +1,9 @@
+import InputPassword from '@/components/InputPassword/InputPassword';
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function LoginScreen() {
-    const [showPassword, setShowPassword] = useState(false);
-
     return (
         <SafeAreaView>
             <KeyboardAvoidingView behavior='position'>
@@ -21,12 +19,7 @@ export default function LoginScreen() {
                     </View>
                     <View className='gap-y-2'>
                         <Text className='text-lg font-semibold'>Password</Text>
-                        <View className='flex-row gap-x-1 items-center'>
-                            <TextInput secureTextEntry={!showPassword} className='bg-gray-200 text-xl px-4 py-2 rounded-l-lg flex-1' />
-                            <TouchableOpacity style={{ height: 44 }} onPress={() => setShowPassword((old) => !old)} className='items-center justify-center bg-gray-200 p-2 rounded-r-lg'>
-                                <Text>{showPassword ? 'Hide' : 'Show'}</Text>
-                            </TouchableOpacity>
-                        </View>
+                        <InputPassword />
                     </View>
                     <View>
                         <TouchableOpacity style={{ height: 40 }} className='mt-4 items-center justify-center bg-violet-600 rounded-full'>
