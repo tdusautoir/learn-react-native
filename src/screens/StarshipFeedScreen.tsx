@@ -14,6 +14,12 @@ export default function StarshipFeedScreen({ navigation }: { navigation: any }) 
             <SafeAreaView>
                 <Offline />
                 <StatusBar style="dark" />
+                <View className="flex-row justify-between px-8 py-4 mb-4 border-b-2 border-gray-400" >
+                    <TouchableOpacity onPress={() => navigation.goBack()}>
+                        <Text className="text-xl">&#60; Back</Text>
+                    </TouchableOpacity>
+                    <Text className="text-xl">Starships</Text>
+                </View>
                 {isLoading && <Text>Loading...</Text>}
                 {!isLoading && data &&
                     <View className="w-full justify-center items-center">
@@ -22,7 +28,7 @@ export default function StarshipFeedScreen({ navigation }: { navigation: any }) 
                                 <View className="bg-transparent h-8" />
                             )}
                             renderItem={({
-                                item,
+                                item
                             }) => {
                                 return (
                                     <TouchableOpacity onPress={() => {
