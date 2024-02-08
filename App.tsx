@@ -4,8 +4,9 @@ import { StarshipFeedScreen } from "./src/screens/StarshipFeedScreen";
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { NetworkProvider } from 'react-native-offline';
 import { ScreenContainer } from "@/components/ScreenContainer";
+import Constants from 'expo-constants';
 
-export default function App() {
+function App() {
   return (
     <NetworkProvider>
       <QueryClientProvider client={(new QueryClient())}>
@@ -18,3 +19,11 @@ export default function App() {
     </NetworkProvider>
   );
 }
+
+let AppEntryPoint = App;
+
+if (Constants && Constants.expoConfig && Constants.expoConfig.extra && Constants.expoConfig.extra.storybookEnabled === 'true') {
+  AppEntryPoint = require('./.storybook').default;
+}
+
+export default AppEntryPoint;
