@@ -11,6 +11,4 @@ test('input password test', () => {
 
     fireEvent.press(screen.getByText('Hide'));
     expect(screen.getByText('Show')).toBeTruthy();
-
-
 })
