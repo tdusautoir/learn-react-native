@@ -3,14 +3,17 @@ import { NetworkProvider } from 'react-native-offline';
 // import { ScreenContainer } from "@/components/ScreenContainer/ScreenContainer";
 import Constants from 'expo-constants';
 import Navigator from "@/navigation/Navigator";
+import { AuthContextProvider } from '@/context/AuthContext';
 
 function App() {
   return (
-    <NetworkProvider>
-      <QueryClientProvider client={(new QueryClient())}>
-        <Navigator />
-      </QueryClientProvider>
-    </NetworkProvider>
+    <AuthContextProvider>
+      <NetworkProvider>
+        <QueryClientProvider client={(new QueryClient())}>
+          <Navigator />
+        </QueryClientProvider>
+      </NetworkProvider>
+    </AuthContextProvider>
   );
 }
 

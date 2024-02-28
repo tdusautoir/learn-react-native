@@ -5,9 +5,11 @@ import { useStarships } from "@/hooks/useSpaceships";
 import { StatusBar } from 'expo-status-bar';
 import { Routes } from "@/navigation/Routes";
 import { Offline } from "@/components/Offline/Offline";
+import { useAuthContext } from "@/context/AuthContext";
 
 export default function StarshipFeedScreen({ navigation }: { navigation: any }) {
     const { data, isLoading, isError, error } = useStarships();
+    const { toggleIsSignedIn } = useAuthContext();
 
     return (
         <>
@@ -15,8 +17,8 @@ export default function StarshipFeedScreen({ navigation }: { navigation: any }) 
                 <Offline />
                 <StatusBar style="dark" />
                 <View className="flex-row justify-between px-8 py-4 mb-4 border-b-2 border-gray-400" >
-                    <TouchableOpacity onPress={() => navigation.goBack()}>
-                        <Text className="text-xl">&#60; Back</Text>
+                    <TouchableOpacity onPress={toggleIsSignedIn}>
+                        <Text className="text-xl">Deconnexion</Text>
                     </TouchableOpacity>
                     <Text className="text-xl">Starships</Text>
                 </View>
