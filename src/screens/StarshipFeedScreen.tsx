@@ -2,29 +2,18 @@ import React from "react";
 import { View, SafeAreaView, FlatList, Text, TouchableOpacity } from "react-native";
 import SpaceShipCard from "@/components/SpaceShipCard/SpaceShipCard";
 import { useStarships } from "@/hooks/useSpaceships";
-import { StatusBar } from 'expo-status-bar';
 import { Routes } from "@/navigation/Routes";
-import { Offline } from "@/components/Offline/Offline";
-import { useAuthContext } from "@/context/AuthContext";
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function StarshipFeedScreen({ navigation }: { navigation: any }) {
     const { data, isLoading, isError, error } = useStarships();
-    const { toggleIsSignedIn } = useAuthContext();
 
     return (
         <>
             <SafeAreaView>
-                <Offline />
-                <StatusBar style="dark" />
-                <View className="flex-row justify-between px-8 py-4 mb-4 border-b-2 border-gray-400" >
-                    <TouchableOpacity onPress={toggleIsSignedIn}>
-                        <Text className="text-xl">Deconnexion</Text>
-                    </TouchableOpacity>
-                    <Text className="text-xl">Starships</Text>
-                </View>
                 {isLoading && <Text>Loading...</Text>}
                 {!isLoading && data &&
-                    <View className="w-full justify-center items-center">
+                    <View className="w-full justify-center items-center mt-4">
                         <FlatList data={data.results}
                             ItemSeparatorComponent={() => (
                                 <View className="bg-transparent h-8" />
