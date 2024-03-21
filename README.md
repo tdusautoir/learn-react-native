@@ -7,13 +7,13 @@ Application permettant de visualiser différents vaisseaux. Cette application m'
 Clone ce dépôt GitHub :
 
 ```bash
-git clone https://github.com/votre-utilisateur/nom-de-ton-projet.git
+git clone https://github.com/tdusautoir/learn-react-native.git
 ```
 
 Accède au répertoire de l'application :
 
 ```bash
-cd nom-de-ton-projet
+cd learn-react-native
 ```
 
 Installe les dépendances :
