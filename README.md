@@ -33,3 +33,6 @@ npm run start
 ![Page d'accueil](./screenshots/IMG_6229.PNG)
 ![Page des vaisseaux](./screenshots/IMG_6230.PNG)
 ![Détail d'un vaisseau](./screenshots/IMG_6231.PNG)
+
+<img src="./screenshots/IMG_6229.PNG" alt="Texte alternatif" style="width: 200px;"/>
+
